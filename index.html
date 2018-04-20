@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<!--  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=OGyBKkVtbmyA3dveG9GGk0s8Sjc87LFO"></script> -->
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=305f3ab63bbf21e3b07067dfa0ca0f08 "></script>
+	<title>Document</title>
+</head>
+<script type="text/javascript">
+AMap.service('AMap.Geocoder',function(){//回调函数
+    //实例化Geocoder
+    geocoder = new AMap.Geocoder({
+        city: "0574"//城市，默认：“全国”
+    });
+    //TODO: 使用geocoder 对象完成相关功能
+    	//逆地理编码
+ //    	function getLocation(){
+ //        if (navigator.geolocation){
+ //    navigator.geolocation.getCurrentPosition(showPosition);
+ //    }
+ //  else{x.innerHTML="Geolocation is not supported by this browser.";}
+ //  }
+ //  function showPosition(position){
+	// var arr = [];
+	// arr.push(parseFloat(position.coords.longitude));
+ //    arr.push(parseFloat(position.coords.latitude));
+ //    return arr;
+ //  }
+	// var lnglatXY=showPosition(position);//地图上所标点的坐标
+	geocoder.getAddress([121.5320,29.805589], function(status, result) {
+    if (status === 'complete' && result.info === 'OK') {
+       //获得了有效的地址信息:
+       alert(result.regeocode.formattedAddress);
+    }else{
+       alert("获取地理位置失败");
+    }
+}); 
+})
+
+
+</script>
+<body>
+
+</body>
+</html>
